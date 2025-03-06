@@ -1,18 +1,6 @@
 import Link from "next/link";
-import { useState } from "react";
 
-const users = () => {
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      name: "Steddy",
-    },
-    {
-      id: 2,
-      name: "Artem",
-    },
-  ]);
-
+const Users = ({ users }) => {
   return (
     <div>
       Список пользователей
@@ -29,4 +17,10 @@ const users = () => {
   );
 };
 
-export default users;
+export default Users;
+
+export async function getStaticProps(context) {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users = await response.json();
+  return { props: { users } };
+}
