@@ -1,8 +1,9 @@
 import Link from "next/link";
+import MainContainer from "../components/MainContainer";
 
 const Users = ({ users }) => {
   return (
-    <div>
+    <MainContainer keywords={"users page"}>
       Список пользователей
       <ul>
         {users.map((user) => (
@@ -13,7 +14,7 @@ const Users = ({ users }) => {
           </Link>
         ))}
       </ul>
-    </div>
+    </MainContainer>
   );
 };
 
